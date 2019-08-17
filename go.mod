@@ -1,4 +1,4 @@
-module github.com/davi807/net-utils
+module net-utils
 
 go 1.12
 

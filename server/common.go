@@ -22,6 +22,11 @@ func Root() string {
 	return serverRoot
 }
 
+// StaticFS register static file server
+func StaticFS(path string) {
+	http.Handle(path, http.FileServer(http.Dir("./public")))
+}
+
 // Start server
 func Start() {
 	go func() {

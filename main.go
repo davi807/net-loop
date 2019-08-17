@@ -1,9 +1,13 @@
 package main
 
-import "github.com/davi807/net-utils/server"
+import (
+	"net-utils/browser"
+	"net-utils/server"
+)
 
 func main() {
-
+	server.StaticFS("/")
 	server.Start()
-	startBrowser(server.Root())
+
+	browser.Start(server.Root(), 800, 600)
 }
