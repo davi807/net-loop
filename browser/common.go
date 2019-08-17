@@ -8,13 +8,17 @@ import (
 
 var ui lorca.UI
 
-// Start browser ui and go to serverRoot url
-func Start(serverRoot string, width int, height int) {
-
-	ui, err := lorca.New("http://"+serverRoot, "", width, height)
+// Init initialize browser main ui
+func Init(serverRoot string, width int, height int) {
+	var err error
+	ui, err = lorca.New("http://"+serverRoot, ".cache", width, height)
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+// Start browser ui and go to serverRoot url
+func Start() {
 	defer ui.Close()
 	// Wait until UI window is closed
 	<-ui.Done()

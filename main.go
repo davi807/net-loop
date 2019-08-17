@@ -9,5 +9,9 @@ func main() {
 	server.StaticFS("/")
 	server.Start()
 
-	browser.Start(server.Root(), 800, 600)
+	browser.Init(server.Root(), 800, 600)
+
+	// todo here is going workers registrations
+
+	browser.Start()
 }
