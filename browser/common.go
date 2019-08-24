@@ -1,6 +1,7 @@
 package browser
 
 import (
+	"io/ioutil"
 	"log"
 
 	"github.com/zserge/lorca"
@@ -9,15 +10,22 @@ import (
 var ui lorca.UI
 
 // Init initialize browser main ui
-func Init(serverRoot string, width int, height int) {
-	var err error
-	ui, err = lorca.New("http://"+serverRoot, ".cache", width, height)
+func Init(width int, height int) {
+	index, err := ioutil.ReadFile("./assets/index.html")
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	ui, err = lorca.New("data:text/html, "+string(index), ".profile", width, height)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	bindLoader()
+	loadStartContent()
 }
 
-// Start browser ui and go to serverRoot url
+// Start browser ui
 func Start() {
 	defer ui.Close()
 	// Wait until UI window is closed
