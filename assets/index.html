@@ -18,8 +18,32 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
-        
+    <div id="app"></div>
+
+    <div class="d-flex flex-column full-height">
+        <div class="title bg-danger">Title</div>
+        <div class="main d-flex flex-row flex-nowrap">
+            <div class="menu col-2">Menu</div>
+            <div class="content col">Content</div>
+        </div>
     </div>
+
+
+    <script>
+        let initialLoad = setInterval(() => {
+
+            if(typeof load !== 'undefined'){
+                clearInterval(initialLoad)
+                
+                load('/css/bootstrap.min.css').then(res => insert('bootstrap.min.min.css', res))
+                load('/css/all.css').then(res => insert('all.min.css', res))
+                load('/css/main.css').then(res => insert('main.css', res))
+
+                load('/js/vue.min.js').then(res => insert('vue.min.js', res))
+                load('/js/main.js').then(res => insert('main.js', res))
+            }
+        }, 50);
+    </script>
+
 </body>
 </html>

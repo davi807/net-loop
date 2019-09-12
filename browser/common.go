@@ -21,8 +21,7 @@ func Init(width int, height int) {
 		log.Fatal(err)
 	}
 
-	bindLoader()
-	loadStartContent()
+	ui.Bind("load", loader)
 }
 
 // Start browser ui
