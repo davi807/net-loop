@@ -5,10 +5,10 @@ import (
 )
 
 func main() {
-
 	browser.Init(800, 600)
 
-	// todo here is going workers registrations
+	browser.RegisterConfigManager()
+	browser.SetupTranslation()
 
 	browser.Start()
 }

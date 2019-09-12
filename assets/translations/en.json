@@ -1,0 +1,11 @@
+{
+    "_name": "en",
+    "title": "Network utils",
+
+    "ping": "Ping",
+    "tcp": "Tcp port check",
+
+    "add": "add",
+    "remove": "remove",
+    "edit": "edit"
+}
