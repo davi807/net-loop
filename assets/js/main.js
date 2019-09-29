@@ -39,7 +39,7 @@ function makeSidebar(){
         document.body.innerHTML = await load('/content.html')    
         mui = JSON.parse(i18n)
         makeSidebar()
-    })
+    }, 100)
 
 })()
 
