@@ -9,8 +9,8 @@ import (
 
 var ui lorca.UI
 
-// Init initialize browser main ui
-func Init(width int, height int) {
+// Start initialize browser main ui
+func Start(width int, height int) {
 	index, err := ioutil.ReadFile("./assets/index.html")
 	if err != nil {
 		log.Fatal(err)
@@ -24,9 +24,10 @@ func Init(width int, height int) {
 	ui.Bind("load", loader)
 }
 
-// Start browser ui
-func Start() {
+// Wait for browser ui
+func Wait() {
 	defer ui.Close()
+
 	// Wait until UI window is closed
 	<-ui.Done()
 }

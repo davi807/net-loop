@@ -1,34 +1,45 @@
 let mui
 let vm
 
-function makeInstance(){
-    mui = JSON.parse(i18n)
+function makeSidebar(){
     vm = new Vue({
-        el: '[data-container]',
+        el: '#sidebar',
         data: {
             mui: mui
+        },
+        created(){
+            document.title = this.mui.title
         }
-    })
+    }) 
 }
 
-(async () => {
-    [
+/* :::::::::::::::: init ::::::::::::::: */
+
+(() => {
+    let ready = 0
+    let wait
+    let assets = [
         '/css/bootstrap.min.css',
         '/css/main.css',
         '/js/font-awesome.js',
         '/js/vue.min.js'
-    ].forEach(async asset => {
-        insert(asset, await load(asset))         
+    ]
+    assets.forEach(async asset => {
+        insert(asset, await load(asset))
+        ready += 1      
     })
 
-    document.body.innerHTML = await load('/content.html')    
-    
-    let wait = setInterval(() => {
-        if(typeof Vue !== 'undefined' && typeof i18n !== 'undefined'){
-            clearInterval(wait)
-            makeInstance()
+    wait = setInterval(async () => {
+        if(ready !== assets.length){
+            return
         }
-    }, 30)
+
+        clearInterval(wait)
+
+        document.body.innerHTML = await load('/content.html')    
+        mui = JSON.parse(i18n)
+        makeSidebar()
+    })
 
 })()
 
