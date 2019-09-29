@@ -19,7 +19,7 @@ func SetupTranslation() {
 	}
 
 	data, _ := ioutil.ReadFile("./assets/translations/" + lang + ".json")
-	ui.Eval("let i18n = " + "`" + string(data) + "`")
+	ui.Eval("var i18n =" + "`" + string(data) + "`;")
 
 	if notConf {
 		go setConfig("lang", lang)

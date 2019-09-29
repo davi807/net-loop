@@ -7,7 +7,9 @@ import (
 
 func main() {
 	go workers.OpenDevices()
-	defer workers.CloseDatabases()
+	defer func() {
+		workers.CloseDatabases()
+	}()
 
 	browser.Start(800, 600)
 

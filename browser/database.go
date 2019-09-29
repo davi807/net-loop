@@ -1,4 +1,4 @@
 package browser
 
-// RegisterDatabaseManager add database interaction methods to browser
+// RegisterDatabaseManager adds database interaction methods to browser
 func RegisterDatabaseManager() {}
