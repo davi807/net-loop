@@ -1,4 +1,6 @@
 net-utils
-.vscode
+config.json
+
 .profile
+.vscode
 db
