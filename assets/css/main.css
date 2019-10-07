@@ -1,15 +1,21 @@
-.full-height{
+nav {
+    max-width:180px;
+    background: var(--dark);
     height: 100vh;
+    overflow-y: auto;
 }
 
-.title{}
-
-.main{
-    overflow: hidden;
-    flex:1;
+.title{
+    background-color: burlywood;
+    color: var(--dark);
 }
 
-.menu, .content{
-    height: 100%;
-    overflow-y: scroll;
+nav li{
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+nav li:hover{
+    background-color: var(--green);
 }

@@ -32,7 +32,7 @@ function makeSidebar(){
     })
 
     wait = setInterval(async () => {
-        if(window && window.document && typeof i18n === 'string' && ready !== assets.length){
+        if( typeof(i18n) !== 'string' || ready !== assets.length){
             return
         }
         

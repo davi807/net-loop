@@ -1,8 +1,10 @@
 {
     "_name": "en",
     "title": "Network utils",
+    "startPage": "Start",
 
     "ping": "Ping",
+    "devices": "Devices",
     "tcp": "Tcp port check",
 
     "add": "add",

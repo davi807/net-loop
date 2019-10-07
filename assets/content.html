@@ -1,17 +1,27 @@
-<div class="main d-flex flex-row full-height flex-nowrap">
-    <div id="sidebar" class="menu d-flex flex-column p-0 col-2">
-        <div class="title bg-info text-white text-center">
-            {{mui.title}}
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header title">
+            <h3>{{ mui.title }}</h3>
         </div>
-    </div>
 
-    <div class="content col">
-        <div id="content">
-            <div>
-                <i class="fa fa-dog"></i>
-                <i class="fa fa-cat"></i>
-            </div>
-        </div>
+        <ul class="list-unstyled components">
+            <li class="active">
+                <span href="#">{{mui.startPage}}</span>
+            </li>
+            <li>
+                <span href="#">{{mui.devices}}</span>
+            </li>
+            <li>
+            <span href="#"><i class="fa fa-plus"></i> {{mui.add}}</span>
+                </li>
+            <li>
+                <span href="#">{{mui.ping}}</span>
+            </li>
+        </ul>
+    </nav>
+
+     <div id="content">
 
     </div>
 

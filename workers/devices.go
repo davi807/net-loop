@@ -56,7 +56,6 @@ func RemoveDevice(id string) bool {
 		return false
 	}
 
-	addCount(devMeta, -1)
 	setMeta(devices, devMeta)
 	return true
 }
