@@ -1,5 +1,6 @@
 let mui
 let vm
+let content
 
 function makeSidebar(){
     vm = new Vue({
@@ -9,6 +10,20 @@ function makeSidebar(){
         },
         created(){
             document.title = this.mui.title
+        },
+        mounted(){
+            load('/js/components/home.js').then(res => {
+                insert('/js/components/home.js', res)
+                content = new Vue({
+                    el: '#content',
+                    data: {
+                        component: 'start-page'
+                    },
+                    template: `<div id="content">
+                      <component :is="component"></component>
+                    </div>`
+                })
+            })
         }
     }) 
 }
