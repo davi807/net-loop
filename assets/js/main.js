@@ -6,24 +6,45 @@ function makeSidebar(){
     vm = new Vue({
         el: '#sidebar',
         data: {
-            mui: mui
+            page: 'start-page',
+            mui: mui,
+        },
+        methods: {
+            createVM(name){
+                let path = `/js/components/${name}.js`
+                let create = () => {
+                    if(content && content.$destroy)
+                        content.$destroy()
+                    
+                    content = new Vue({
+                        el: '#content',
+                        data: {
+                            component: name
+                        },
+                        template: `<div id="content">
+                        <component :is="component"></component>
+                        </div>`
+                    })
+                }
+                if(document.querySelector('#'+path.match(/[a-zA-Z]/g, '').join(''))){
+                    create();
+                } else {
+                    load(path).then(res => {
+                        insert(path, res)
+                        create(name)    
+                    })
+                }
+
+            },
+            setPage(page){
+                this.createVM(page)
+            }
         },
         created(){
             document.title = this.mui.title
         },
         mounted(){
-            load('/js/components/home.js').then(res => {
-                insert('/js/components/home.js', res)
-                content = new Vue({
-                    el: '#content',
-                    data: {
-                        component: 'start-page'
-                    },
-                    template: `<div id="content">
-                      <component :is="component"></component>
-                    </div>`
-                })
-            })
+            this.createVM('start-page')    
         }
     }) 
 }
