@@ -37,6 +37,7 @@ function makeSidebar(){
 
             },
             setPage(page){
+                this.page = page
                 this.createVM(page)
             }
         },

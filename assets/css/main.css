@@ -19,3 +19,8 @@ nav li{
 nav li:hover{
     background-color: var(--green);
 }
+
+nav li.active{
+    filter: grayscale(80%);
+    background: var(--green);
+}

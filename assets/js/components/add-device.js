@@ -1,8 +1,8 @@
 (() => {
     let template = `<div>
-        <span>Device list</span>
+        <span>Add device</span>
     </div>`;
-    Vue.component('device-list', {
+    Vue.component('add-device', {
         template: template
     })
 })()
