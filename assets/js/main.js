@@ -6,7 +6,7 @@ function makeSidebar(){
     vm = new Vue({
         el: '#sidebar',
         data: {
-            page: 'start-page',
+            page: 'stat-page',
             mui: mui,
         },
         methods: {
@@ -45,7 +45,7 @@ function makeSidebar(){
             document.title = this.mui.title
         },
         mounted(){
-            this.createVM('start-page')    
+            this.createVM(this.page)    
         }
     }) 
 }

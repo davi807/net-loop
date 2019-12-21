@@ -1,8 +1,8 @@
 (() => {
 let template = `<div>
-    <span>Start page</span>
+    <span>Statistics...</span>
 </div>`;
-Vue.component('start-page', {
+Vue.component('stat-page', {
     template: template
 })
 })()

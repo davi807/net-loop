@@ -1,13 +1,14 @@
 {
     "_name": "en",
     "title": "Network utils",
-    "startPage": "Start",
+    "statPage": "Stats",
 
     "ping": "Ping",
     "devices": "Devices",
     "tcp": "Tcp port check",
 
-    "add": "add",
+    "add": "Add",
+    "add_device": "Add device",
     "remove": "remove",
     "edit": "edit"
 }

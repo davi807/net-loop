@@ -6,17 +6,17 @@
         </div>
 
         <ul class="list-unstyled components">
-            <li @click="setPage('start-page')" :class="{active: page === 'start-page'}">
-                <span>{{mui.startPage}}</span>
+            <li @click="setPage('stat-page')" :class="{active: page === 'stat-page'}">
+                <span>{{mui.statPage}}</span>
             </li>
             <li @click="setPage('device-list')" :class="{active: page === 'device-list'}">
                 <span>{{mui.devices}}</span>
             </li>
-            <li @click="setPage('add-device')" :class="{active: page === 'add-device'}">
-                <span><i class="fa fa-plus"></i> {{mui.add}}</span>
-            </li>
             <li @click="setPage('ping')" :class="{active: page === 'ping'}">
                 <span>{{mui.ping}}</span>
+            </li>
+            <li @click="setPage('add-device')" :class="{active: page === 'add-device'}">
+                <span><i class="fa fa-plus"></i> {{mui.add_device}}</span>
             </li>
         </ul>
     </nav>
