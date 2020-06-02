@@ -7,7 +7,6 @@ function makeSidebar(){
         el: '#sidebar',
         data: {
             page: 'stat-page',
-            mui: mui,
         },
         methods: {
             createVM(name){
@@ -42,7 +41,7 @@ function makeSidebar(){
             }
         },
         created(){
-            document.title = this.mui.title
+            document.title = "Net-tools"
         },
         mounted(){
             this.createVM(this.page)    
@@ -51,7 +50,6 @@ function makeSidebar(){
 }
 
 /* :::::::::::::::: init ::::::::::::::: */
-
 (() => {
     let ready = 0
     let wait
@@ -59,7 +57,6 @@ function makeSidebar(){
     let assets = [
         '/css/bootstrap.min.css',
         '/css/main.css',
-        '/js/font-awesome.js',
         '/js/vue.min.js'
     ]
 
@@ -69,14 +66,13 @@ function makeSidebar(){
     })
 
     wait = setInterval(async () => {
-        if( typeof(i18n) !== 'string' || ready !== assets.length){
+        if(ready !== assets.length){
             return
         }
         
         clearInterval(wait)
 
         document.body.innerHTML = await load('/content.html')
-        mui = JSON.parse(i18n)
         makeSidebar()
 
     }, 50)
