@@ -1,26 +1,9 @@
-nav {
-    max-width:180px;
-    background: var(--dark);
-    height: 100vh;
-    overflow-y: auto;
+body{
+    background-color:lavenderblush;
 }
 
-.title{
-    background-color: burlywood;
-    color: var(--dark);
-}
-
-nav li{
-    padding: 8px;
-    color: white;
-    cursor: pointer;
-}
-
-nav li:hover{
-    background-color: var(--green);
-}
-
-nav li.active{
-    filter: grayscale(80%);
-    background: var(--green);
+nav{
+    background: coral;
+    margin-bottom: 11px;
+    box-shadow: #202020 1px 1px 5px 2px;
 }

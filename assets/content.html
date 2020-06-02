@@ -1,19 +1,79 @@
-<div class="wrapper d-flex">
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <div class="sidebar-header title">
-            <h3>NET</h3>
+<nav><h3>Traffic rate counter</h3></nav>
+<div id="content" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Lyamda.</span>
         </div>
-
-        <ul class="list-unstyled components">
-            <li @click="setPage('stat-page')" :class="{active: page === 'stat-page'}">
-                <span>Counter</span>
-            </li>
-        </ul>
-    </nav>
-
-    <div id="content">
+        <input type="number" class="form-control" placeholder="Lyamda">
+      </div>
 
     </div>
+
+    <div class="col-sm-4">
+      
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">K</span>
+        </div>
+        <input type="number" class="form-control" placeholder="K">
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">u</span>
+        </div>
+        <input type="number" class="form-control" placeholder="u">
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">U0</span>
+        </div>
+        <input type="number" class="form-control" placeholder="U0">
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">w</span>
+        </div>
+        <input type="number" class="form-control" placeholder="w">
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">p</span>
+        </div>
+        <input type="number" class="form-control" placeholder="p">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <button class="btn btn-success" @click="countP()">Count</button>
+    </div>
+  </div>
 
 </div>
