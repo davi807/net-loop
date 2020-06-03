@@ -9,7 +9,10 @@ let content
     let assets = [
         '/css/bootstrap.min.css',
         '/css/main.css',
+        '/css/Chart.min.css',
+        
         '/js/vue.min.js',
+        '/js/Chart.min.js',
         '/js/components/router-params.js'
     ]
 

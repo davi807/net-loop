@@ -4,21 +4,35 @@ const startVM = () => {
         data:{
             lyamda: 48,
             k: 0.99,
-            u: 50,
+            myu: 50,
             u0: 0.01,
-            w: 1,
             p: Number,
             points: []
         },
         methods: {
-            countP(){
-                let res = 0;
-                
+            countP(){                
+                let exp = Math.exp(-1*(this.myu - this.lyamda)*this.u0)
 
-                res = (1-this.k)*(this.w-this.k)*Math.exp(-1*(this.u-this.lyamda)*this.u0) /
-                        -1*this.w*Math.expm1(-1*(this.u-this.lyamda)*this.u0)
+                let up = (1-this.k) * (this.w-this.k) * exp
+                let down =  (this.w * exp) - 1                 
                         
-                console.log(res)
+                return up / down
+            },
+            makePoints(){
+                this.points = []
+                while(this.u0 <= 0.5){
+                    this.points.push({
+                        u: this.u0, 
+                        p: this.countP() * 100
+                    })
+                    this.u0 += 0.05
+                }
+                
+            }
+        },
+        computed: {
+            w(){
+                return this.lyamda / this.myu
             }
         }
     })
