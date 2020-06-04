@@ -7,7 +7,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Lyamda.</span>
         </div>
-        <input type="number" class="form-control" placeholder="Lyamda">
+        <input type="number" class="form-control" v-model="lyamda">
       </div>
 
     </div>
@@ -18,7 +18,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">K</span>
         </div>
-        <input type="number" class="form-control" placeholder="K">
+        <input type="number" class="form-control" v-model="k">
       </div>
 
     </div>
@@ -27,9 +27,9 @@
 
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">u</span>
+          <span class="input-group-text">myu</span>
         </div>
-        <input type="number" class="form-control" placeholder="u">
+        <input type="number" class="form-control" v-model="myu">
       </div>
 
     </div>
@@ -43,7 +43,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">U0</span>
         </div>
-        <input type="number" class="form-control" placeholder="U0">
+        <input type="number" class="form-control" v-model="u0">
       </div>
 
     </div>
@@ -53,7 +53,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">w</span>
         </div>
-        <input type="number" class="form-control" placeholder="w">
+        <input type="number" class="form-control" readonly v-model="w">
       </div>
 
     </div>
@@ -64,7 +64,8 @@
         <div class="input-group-prepend">
           <span class="input-group-text">p</span>
         </div>
-        <input type="number" class="form-control" placeholder="p">
+        <input type="number" class="form-control" readonly v-model="p">
+        <button class="btn btn-success" @click="p = countP()">Count</button>
       </div>
 
     </div>
@@ -72,8 +73,8 @@
 
   <div class="row">
     <div class="col-sm-12 text-center">
-      <button class="btn btn-success" @click="countP()">Count</button>
-      <button class="btn btn-primary" @click="makePoints()">Count</button>
+      <button class="btn btn-primary" @click="makePoints()">Make graph</button>
+      <button class="btn btn-warning">Reset</button>
     </div>
   </div>
 

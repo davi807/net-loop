@@ -1,9 +1,13 @@
 body{
-    background-color:lavenderblush;
+    background:lavenderblush;
 }
 
 nav{
     background: coral;
     margin-bottom: 11px;
     box-shadow: #202020 1px 1px 5px 2px;
+}
+
+.row{
+    margin-bottom: 5px;    
 }
