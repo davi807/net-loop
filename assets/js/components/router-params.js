@@ -1,3 +1,7 @@
+var chart
+var labels
+var datasets = []
+
 const startVM = () => {
     vm = new Vue({
         el: '#content',
@@ -7,7 +11,6 @@ const startVM = () => {
             myu: 50,
             u0: 0.01,
             p: Number,
-            points: []
         },
         methods: {
             countP(){                
@@ -19,16 +22,53 @@ const startVM = () => {
                 return up / down
             },
             makePoints(){
-                this.points = []
+                labels = []
+                let dataset = this.generateDataset()
                 while(this.u0 <= 0.5){
-                    this.points.push({
-                        u: this.u0, 
-                        p: this.countP() * 100
-                    })
+                    labels.push(this.u0.toFixed(2))
+                    dataset.data.push(this.countP() * 100)
                     this.u0 += 0.05
+                    
                 }
                 
+                datasets.push(dataset)
+
+                this.buildChart()
+            },
+
+            generateDataset(){
+                return {
+                    label: `λ = ${this.lyamda},  ν = ${this.myu}`,
+                    fill: false,
+                    data: [],
+                    borderColor: getColor(),
+                    borderWidth: 2,
+                }
+            },
+
+            buildChart(){
+                var ctx = document.getElementById('chart');
+                
+                chart = new Chart(ctx, {
+                    type: 'line',
+                    labels: labels,
+                    data: {
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                },
+                            }]
+                        }
+                    }
+                })
+            
+
             }
+
         },
         computed: {
             w(){
@@ -36,4 +76,8 @@ const startVM = () => {
             }
         }
     })
+}
+
+function getColor(){
+    return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
