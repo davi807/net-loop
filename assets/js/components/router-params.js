@@ -1,5 +1,5 @@
 var chart
-var labels
+var labels = []
 var datasets = []
 
 const startVM = () => {
@@ -24,24 +24,28 @@ const startVM = () => {
             makePoints(){
                 labels = []
                 let dataset = this.generateDataset()
-                while(this.u0 <= 0.5){
+                while(this.u0 <= 0.4){
                     labels.push(this.u0.toFixed(2))
                     dataset.data.push(this.countP() * 100)
-                    this.u0 += 0.05
+                    this.u0 += 0.03
                     
                 }
                 
                 datasets.push(dataset)
+                this.u0 = 0.01
 
                 this.buildChart()
             },
 
             generateDataset(){
+                let color = getColor()
                 return {
                     label: `λ = ${this.lyamda},  ν = ${this.myu}`,
                     fill: false,
                     data: [],
-                    borderColor: getColor(),
+                    borderColor: color,
+                    backgroundColor: color,
+
                     borderWidth: 2,
                 }
             },
@@ -56,6 +60,7 @@ const startVM = () => {
                         datasets: datasets
                     },
                     options: {
+                        responsive: true,
                         scales: {
                             yAxes: [{
                                 ticks: {
@@ -67,6 +72,21 @@ const startVM = () => {
                 })
             
 
+            },
+
+            reset(){
+                this.lyamda = 48
+                this.k = 0.99
+                this.myu = 50
+                this.u0 = 0.01
+                this.p = Number
+                
+                if(chart){
+                    chart.destroy()
+                }
+ 
+                labels = []
+                datasets = []
             }
 
         },
@@ -79,5 +99,14 @@ const startVM = () => {
 }
 
 function getColor(){
-    return '#'+Math.floor(Math.random()*16777215).toString(16);
+    let colors = [
+        'ff4000',
+        '00ff00',
+        '0080ff',
+        '8000ff',
+        'ff0040',
+        'ffbf00',
+        '4d79ff'
+    ]
+    return '#'+colors[Math.floor(Math.random() * colors.length)]
 }
