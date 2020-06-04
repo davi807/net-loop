@@ -51,8 +51,8 @@ const startVM = () => {
                 
                 chart = new Chart(ctx, {
                     type: 'line',
-                    labels: labels,
                     data: {
+                        labels: labels,
                         datasets: datasets
                     },
                     options: {
