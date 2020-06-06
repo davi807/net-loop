@@ -1,11 +1,11 @@
-<nav><h3>Traffic rate counter</h3></nav>
+<nav><h4>Ցանցային փաթեթները մշակելու հնարավորության կախումը կորուստների քանակից</h4></nav>
 <div id="content" class="container-fluid">
   <div class="row">
     <div class="col-sm-4">
 
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">Lyamda.</span>
+          <span class="input-group-text">λ</span>
         </div>
         <input type="number" class="form-control" v-model="lyamda">
       </div>
@@ -13,13 +13,15 @@
     </div>
 
     <div class="col-sm-4">
-      
+
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">K</span>
+          <span class="input-group-text">ν</span>
         </div>
-        <input type="number" class="form-control" v-model="k">
+        <input type="number" class="form-control" v-model="myu">
       </div>
+      
+     
 
     </div>
 
@@ -27,9 +29,9 @@
 
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">myu</span>
+          <span class="input-group-text">K</span>
         </div>
-        <input type="number" class="form-control" v-model="myu">
+        <input type="number" class="form-control" v-model="k">
       </div>
 
     </div>
@@ -41,7 +43,7 @@
 
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">U0</span>
+          <span class="input-group-text">U<sub>0</sub></span>
         </div>
         <input type="number" class="form-control" v-model="u0">
       </div>
@@ -51,7 +53,7 @@
 
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">w</span>
+          <span class="input-group-text">Ψ</span>
         </div>
         <input type="number" class="form-control" readonly v-model="w">
       </div>
@@ -62,10 +64,10 @@
 
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">p</span>
+          <span class="input-group-text">P<sub>կոր</sub></span>
         </div>
         <input type="number" class="form-control" readonly v-model="p">
-        <button class="btn btn-success" @click="p = countP()">Count</button>
+        <button class="btn btn-success" @click="p = countP()">Հաշվել</button>
       </div>
 
     </div>
@@ -73,8 +75,8 @@
 
   <div class="row">
     <div class="col-sm-12 text-center">
-      <button class="btn btn-primary" @click="makePoints()">Make graph</button>
-      <button class="btn btn-warning" @click="reset()">Reset</button>
+      <button class="btn btn-primary" @click="makePoints()">Կառուցել գրաֆկկ</button>
+      <button class="btn btn-warning" @click="reset()">Մաքրել</button>
     </div>
   </div>
 
