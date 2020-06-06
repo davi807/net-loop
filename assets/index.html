@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>net-utils</title>
+    <script>
+        function insert(name, content){
+            let path = name.split('.')
+            let type = path[path.length - 1] === 'js' ? 'script' : 'style'
+            let node = document.createElement(type) 
+
+            node.setAttribute('id', name.match(/[a-zA-Z]/g, '').join(''))
+            node.innerHTML = content
+            document.head.appendChild(node)
+        }
+
+        let initialLoad = setInterval(() => {
+            if(typeof load !== 'undefined'){
+                clearInterval(initialLoad)
+                load('/js/main.js').then(res => insert('main.js', res))
+            }
+        }, 100);
+    </script>
+</head>
+<body>
+    <div id="loading">Loading...</div>
+</body>
+</html>

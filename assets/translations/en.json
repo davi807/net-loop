@@ -1,0 +1,14 @@
+{
+    "_name": "en",
+    "title": "Network utils",
+    "statPage": "Stats",
+
+    "ping": "Ping",
+    "devices": "Devices",
+    "tcp": "Tcp port check",
+
+    "add": "Add",
+    "add_device": "Add device",
+    "remove": "remove",
+    "edit": "edit"
+}
